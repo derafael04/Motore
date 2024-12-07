@@ -93,41 +93,51 @@ class _TelainicialState extends State<Telainicial> {
             const SizedBox(height: 24),
             Row(
               children: [
-                Container(
-                  height: 120,
-                  width: (MediaQuery.of(context).size.width - 48) / 2,
-                  decoration: BoxDecoration(
-                    color: const Color(0xffD83951),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Center(
-                    child: Text(
-                      'Traçados',
-                      style: GoogleFonts.fredoka(
-                        color: const Color(0xffFFFFFF),
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
+                InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, '/level_inicial_tracos');
+                  },
+                  child: Container(
+                    height: 120,
+                    width: (MediaQuery.of(context).size.width - 48) / 2,
+                    decoration: BoxDecoration(
+                      color: const Color(0xffD83951),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Center(
+                      child: Text(
+                        'Traçados',
+                        style: GoogleFonts.fredoka(
+                          color: const Color(0xffFFFFFF),
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ),
                 ),
                 const SizedBox(width: 16),
-                Container(
-                  height: 120,
-                  width: (MediaQuery.of(context).size.width - 48) / 2,
-                  decoration: BoxDecoration(
-                    color: const Color(0xffF1A131),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Center(
-                    child: Text(
-                      'Formas Geométricas',
-                      style: GoogleFonts.fredoka(
-                        color: const Color(0xffFFFFFF),
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
+                InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, '/level_inicial_geometricas');
+                  },
+                  child: Container(
+                    height: 120,
+                    width: (MediaQuery.of(context).size.width - 48) / 2,
+                    decoration: BoxDecoration(
+                      color: const Color(0xffF1A131),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Center(
+                      child: Text(
+                        'Formas Geométricas',
+                        style: GoogleFonts.fredoka(
+                          color: const Color(0xffFFFFFF),
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        textAlign: TextAlign.center,
                       ),
-                      textAlign: TextAlign.center,
                     ),
                   ),
                 )
