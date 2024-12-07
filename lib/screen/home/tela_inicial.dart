@@ -127,6 +127,7 @@ class _TelainicialState extends State<Telainicial> {
                     decoration: BoxDecoration(
                       color: const Color(0xffF1A131),
                       borderRadius: BorderRadius.circular(10),
+                      image: const DecorationImage(image: AssetImage('assets/images/formas.png'), alignment: Alignment.centerRight),
                     ),
                     child: Center(
                       child: Text(

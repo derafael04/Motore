@@ -13,7 +13,9 @@ class _TelaInicialAlfabetoState extends State<TelaInicialAlfabeto> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xffFFFFFF),
       appBar: AppBar(
+        backgroundColor: const Color(0xffFFFFFF),
         title: Text(
           'Alfabeto',
           style: GoogleFonts.fredoka(

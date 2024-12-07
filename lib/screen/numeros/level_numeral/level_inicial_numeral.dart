@@ -13,7 +13,9 @@ class _LevelInicialNumeralState extends State<LevelInicialNumeral> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xffFFFFFF),
       appBar: AppBar(
+        backgroundColor: const Color(0xffFFFFFF),
         title: Text(
           'Numerais',
           style: GoogleFonts.fredoka(

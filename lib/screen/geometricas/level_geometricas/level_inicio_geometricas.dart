@@ -13,7 +13,9 @@ class _TelaInicioGeometricasState extends State<TelaInicioGeometricas> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xffFFFFFF),
       appBar: AppBar(
+        backgroundColor: const Color(0xffFFFFFF),
         title: Text(
           'Formas Geométricas',
           style: GoogleFonts.fredoka(
