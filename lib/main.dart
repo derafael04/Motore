@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:motore/screen/alfabeto/level_alfabeto/level_inicial_alfabeto.dart';
 import 'package:motore/screen/home/tela_inicial.dart';
+import 'package:motore/screen/numeros/level_numeral/level_inicial_numeral.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,6 +23,8 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => const Telainicial(),
+        '/level_inicial_numeral': (context) => const LevelInicialNumeral(),
+        '/level_inicial_alfabeto': (context) => const TelaInicialAlfabeto(),
       },
     );
   }

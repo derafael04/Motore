@@ -39,41 +39,51 @@ class _TelainicialState extends State<Telainicial> {
           children: [
             Row(
               children: [
-                Container(
-                  height: 120,
-                  width: (MediaQuery.of(context).size.width - 48) / 2,
-                  decoration: BoxDecoration(
-                    color: const Color(0xff1F8785),
-                    borderRadius: BorderRadius.circular(10),
-                    image: const DecorationImage(image: AssetImage('assets/images/abc.png'), alignment: Alignment.centerRight),
-                  ),
-                  child: Center(
-                    child: Text(
-                      'Alfabeto',
-                      style: GoogleFonts.fredoka(
-                        color: const Color(0xffFFFFFF),
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
+                InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, '/level_inicial_alfabeto');
+                  },
+                  child: Container(
+                    height: 120,
+                    width: (MediaQuery.of(context).size.width - 48) / 2,
+                    decoration: BoxDecoration(
+                      color: const Color(0xff1F8785),
+                      borderRadius: BorderRadius.circular(10),
+                      image: const DecorationImage(image: AssetImage('assets/images/abc.png'), alignment: Alignment.centerRight),
+                    ),
+                    child: Center(
+                      child: Text(
+                        'Alfabeto',
+                        style: GoogleFonts.fredoka(
+                          color: const Color(0xffFFFFFF),
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ),
                 ),
                 const SizedBox(width: 16),
-                Container(
-                  height: 120,
-                  width: (MediaQuery.of(context).size.width - 48) / 2,
-                  decoration: BoxDecoration(
-                    color: const Color(0xffE45828),
-                    borderRadius: BorderRadius.circular(10),
-                    image: const DecorationImage(image: AssetImage('assets/images/numeral.png'), alignment: Alignment.centerRight),
-                  ),
-                  child: Center(
-                    child: Text(
-                      'Numerais',
-                      style: GoogleFonts.fredoka(
-                        color: const Color(0xffFFFFFF),
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
+                InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, '/level_inicial_numeral');
+                  },
+                  child: Container(
+                    height: 120,
+                    width: (MediaQuery.of(context).size.width - 48) / 2,
+                    decoration: BoxDecoration(
+                      color: const Color(0xffE45828),
+                      borderRadius: BorderRadius.circular(10),
+                      image: const DecorationImage(image: AssetImage('assets/images/numeral.png'), alignment: Alignment.centerRight),
+                    ),
+                    child: Center(
+                      child: Text(
+                        'Numerais',
+                        style: GoogleFonts.fredoka(
+                          color: const Color(0xffFFFFFF),
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ),
