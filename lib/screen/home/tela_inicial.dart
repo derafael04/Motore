@@ -20,30 +20,35 @@ class _TelainicialState extends State<Telainicial> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xffFFFFFF),
-      appBar: AppBar(
-        backgroundColor: const Color(0xffFFFFFF),
-        elevation: 0,
-        title: Container(
-          height: 260,
-          width: 220,
-          decoration: const BoxDecoration(
-            image: DecorationImage(image: AssetImage('assets/images/logoback.png'), fit: BoxFit.contain, alignment: Alignment.center),
-          ),
-        ),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              Icons.notifications,
-              color: Color(0xff000000),
-            ),
-          ),
-        ],
-      ),
+      // appBar: AppBar(
+      //   backgroundColor: const Color(0xffFFFFFF),
+      //   elevation: 0,
+      //   title: Container(
+      //     height: 194,
+      //     width: 194,
+      //     decoration: const BoxDecoration(
+      //       image: DecorationImage(image: AssetImage('assets/images/logoback.png'), fit: BoxFit.fill, alignment: Alignment.center),
+      //     ),
+      //   ),
+      //   actions: [
+      //     IconButton(
+      //       onPressed: () {},
+      //       icon: const Icon(
+      //         Icons.notifications,
+      //         color: Color(0xff000000),
+      //       ),
+      //     ),
+      //   ],
+      // ),
       body: Padding(
-        padding: const EdgeInsets.fromLTRB(16, 120, 16, 16),
+        padding: const EdgeInsets.fromLTRB(16, 24, 16, 16),
         child: Column(
           children: [
+            SizedBox(
+              height: 260,
+              width: 260,
+              child: Image.asset('assets/images/logoback.png')),
+            const SizedBox(height: 24),
             Row(
               children: [
                 InkWell(
