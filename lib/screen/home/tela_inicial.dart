@@ -27,7 +27,7 @@ class _TelainicialState extends State<Telainicial> {
           height: 260,
           width: 220,
           decoration: const BoxDecoration(
-            image: DecorationImage(image: AssetImage('assets/images/logo.png'), fit: BoxFit.contain, alignment: Alignment.center),
+            image: DecorationImage(image: AssetImage('assets/images/logoback.png'), fit: BoxFit.contain, alignment: Alignment.center),
           ),
         ),
         actions: [
