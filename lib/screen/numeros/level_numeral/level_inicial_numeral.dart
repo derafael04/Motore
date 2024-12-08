@@ -39,18 +39,23 @@ class _LevelInicialNumeralState extends State<LevelInicialNumeral> {
           verticalGridMargin: 16,
           minItemWidth: 80,
           children: List.generate(10,
-            (index) => ColoredBox(
-              color: const Color(0xffE45828),
-              child: Padding(
-                padding: const EdgeInsets.all(32),
-                child: Text(
-                  'Nivel ${index + 1}',
-                  style: GoogleFonts.fredoka(
-                    color: const Color(0xffFFFFFF),
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
+            (index) => InkWell(
+              onTap: () {
+                Navigator.pushNamed(context, '/drawNumberScreen');
+              },
+              child: ColoredBox(
+                color: const Color(0xffE45828),
+                child: Padding(
+                  padding: const EdgeInsets.all(32),
+                  child: Text(
+                    'Nivel ${index + 1}',
+                    style: GoogleFonts.fredoka(
+                      color: const Color(0xffFFFFFF),
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    textAlign: TextAlign.center,
                   ),
-                  textAlign: TextAlign.center,
                 ),
               ),
             ),
