@@ -3,6 +3,7 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:motore/screen/alfabeto/level_alfabeto/level_inicial_alfabeto.dart';
 import 'package:motore/screen/geometricas/level_geometricas/level_inicio_geometricas.dart';
 import 'package:motore/screen/home/tela_inicial.dart';
+import 'package:motore/screen/login/tela_login.dart';
 import 'package:motore/screen/numeros/level_numeral/draw_number_screen.dart';
 import 'package:motore/screen/numeros/level_numeral/level_inicial_numeral.dart';
 import 'package:motore/screen/tracos/level_tracos/level_inicio_tracos.dart';
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      initialRoute: '/',
+      initialRoute: '/login',
       routes: {
         '/': (context) => const Telainicial(),
         '/level_inicial_numeral': (context) => const LevelInicialNumeral(),
@@ -34,6 +35,7 @@ class MyApp extends StatelessWidget {
         '/level_inicial_geometricas': (context) => const TelaInicioGeometricas(),
         '/level_inicial_tracos': (context) => const TelaInicioTracos(),
         '/drawNumberScreen': (context) => const DrawNumberScreen(),
+        '/login': (context) => const TelaLogin(),
       },
     );
   }
