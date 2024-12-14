@@ -169,14 +169,19 @@ class _TelaLoginState extends State<TelaLogin> {
                   ),
                   textAlign: TextAlign.center,
                 ),
-                Text(
-                  'Cadastre-se',
-                  style: GoogleFonts.fredoka(
-                    color: const Color(0xffE45828),
-                    fontSize: 14,
-                    fontWeight: FontWeight.w600,
+                InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, '/telaCadastroLogin');
+                  },
+                  child: Text(
+                    'Cadastre-se',
+                    style: GoogleFonts.fredoka(
+                      color: const Color(0xffE45828),
+                      fontSize: 14,
+                      fontWeight: FontWeight.w600,
+                    ),
+                    textAlign: TextAlign.center,
                   ),
-                  textAlign: TextAlign.center,
                 ),
               ],
             ),
