@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:ionicons/ionicons.dart';
 
 class TelaLogin extends StatefulWidget {
   const TelaLogin({super.key});
@@ -9,42 +10,64 @@ class TelaLogin extends StatefulWidget {
 }
 
 class _TelaLoginState extends State<TelaLogin> {
+  bool senhaOculta = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xffFFFFFF),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
             padding: const EdgeInsets.fromLTRB(16, 32, 16, 0),
-            child: SizedBox(
-              height: 260,
-              width: 260,
-              child: Image.asset('assets/images/logoback.png')
+            child: Center(
+              child: SizedBox(
+                height: 260,
+                width: 260,
+                child: Image.asset('assets/images/logoback.png', alignment: Alignment.center,)
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(16, 0, 16, 24),
+            child: Text(
+              'Faça login na sua conta',
+              style: GoogleFonts.fredoka(
+                color: Colors.grey[700],
+                fontSize: 20,
+                fontWeight: FontWeight.w600,
+              ),
+              textAlign: TextAlign.start,
             ),
           ),
           const Padding(
             padding: EdgeInsets.fromLTRB(16, 0, 16, 0),
             child: TextField(
-              cursorColor: Color(0xff1F8785),
+              //style: TextStyle(color: Color(0xff1F8785)), // Add this line to change the text color
               decoration: InputDecoration(
                 labelText: 'Email',
-                border: OutlineInputBorder(
-                  borderSide: BorderSide(color: Color(0xff1F8785))
-                ),
+                border: OutlineInputBorder(),
               ),
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.fromLTRB(16, 12, 16, 16),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(16, 12, 16, 16),
             child: TextField(
-              cursorColor: Color(0xff1F8785),
+              //style: TextStyle(color: Color(0xff1F8785)),
               decoration: InputDecoration(
                 labelText: 'Senha',
-                border: OutlineInputBorder(),
-                hoverColor: Color(0xff1F8785),
+                border: const OutlineInputBorder(),
+                suffixIcon: InkWell(
+                  onTap: () {
+                    setState(() {
+                      senhaOculta = !senhaOculta;
+                    });
+                  },
+                  child: Icon(senhaOculta ? Ionicons.eye_off : Ionicons.eye))
               ),
+              obscureText: senhaOculta,
             ),
           ),
           Padding(
@@ -54,7 +77,7 @@ class _TelaLoginState extends State<TelaLogin> {
                 Navigator.pushReplacementNamed(context, '/');
               },
               child: Container(
-                height: 58,
+                height: 50,
                 width: double.infinity ,
                 decoration: BoxDecoration(
                   color: const Color(0xffE45828),
@@ -78,19 +101,20 @@ class _TelaLoginState extends State<TelaLogin> {
             )
           ),
           Padding(
-            padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
+            padding: const EdgeInsets.fromLTRB(16, 24, 16, 24),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
                   height: 1.5,
-                  width: (MediaQuery.of(context).size.width - 70) / 2,
+                  width: 10,
                   color: Colors.grey,
                 ),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
                   child: Text(
-                    'ou',
+                    'Ou faça login com',
                     style: GoogleFonts.fredoka(
                       color: Colors.grey[700],
                       fontSize: 14,
@@ -101,8 +125,58 @@ class _TelaLoginState extends State<TelaLogin> {
                 ),
                 Container(
                   height: 1.5,
-                  width: (MediaQuery.of(context).size.width - 70) / 2,
+                  width: 10,
                   color: Colors.grey,
+                ),
+              ],
+            ),
+          ),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+               InkWell(
+                onTap: () {},
+                 child: SizedBox(
+                  height: 48,
+                  width: 80,
+                  child: Image.asset('assets/images/google.png', alignment: Alignment.center),
+                 ),
+               ),
+               const SizedBox(width: 16),
+               InkWell(
+                onTap: () {},
+                 child: SizedBox(
+                  height: 38,
+                  width: 80,
+                  child: Image.asset('assets/images/facebook.png', alignment: Alignment.center)
+                 ),
+               ),
+            ],
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(16, 24, 16, 24),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Não tem uma conta?  ',
+                  style: GoogleFonts.fredoka(
+                    color: Colors.grey[700],
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                Text(
+                  'Cadastre-se',
+                  style: GoogleFonts.fredoka(
+                    color: const Color(0xffE45828),
+                    fontSize: 14,
+                    fontWeight: FontWeight.w600,
+                  ),
+                  textAlign: TextAlign.center,
                 ),
               ],
             ),
