@@ -30,7 +30,9 @@ class _TelaLoginState extends State<TelaLogin> {
               cursorColor: Color(0xff1F8785),
               decoration: InputDecoration(
                 labelText: 'Email',
-                border: OutlineInputBorder(),
+                border: OutlineInputBorder(
+                  borderSide: BorderSide(color: Color(0xff1F8785))
+                ),
               ),
             ),
           ),
@@ -65,8 +67,8 @@ class _TelaLoginState extends State<TelaLogin> {
                       'Entrar',
                       style: GoogleFonts.fredoka(
                         color: const Color(0xffFFFFFF),
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w500,
                       ),
                       textAlign: TextAlign.center,
                     ),
@@ -75,6 +77,36 @@ class _TelaLoginState extends State<TelaLogin> {
               ),
             )
           ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                  height: 1.5,
+                  width: (MediaQuery.of(context).size.width - 70) / 2,
+                  color: Colors.grey,
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
+                  child: Text(
+                    'ou',
+                    style: GoogleFonts.fredoka(
+                      color: Colors.grey[700],
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                Container(
+                  height: 1.5,
+                  width: (MediaQuery.of(context).size.width - 70) / 2,
+                  color: Colors.grey,
+                ),
+              ],
+            ),
+          )
         ],
       ),
     );
