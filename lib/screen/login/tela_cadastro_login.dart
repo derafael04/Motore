@@ -65,11 +65,11 @@ class _TelaCadastroLoginState extends State<TelaCadastroLogin> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
+              padding: const EdgeInsets.fromLTRB(16, 16, 16, 32),
               child: Center(
                 child: SizedBox(
-                  height: 260,
-                  width: 260,
+                  height: 180,
+                  width: 240,
                   child: Image.asset('assets/images/logoback.png', alignment: Alignment.center,)
                 ),
               ),

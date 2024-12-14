@@ -16,6 +16,7 @@ class _LevelInicialNumeralState extends State<LevelInicialNumeral> {
       backgroundColor: const Color(0xffFFFFFF),
       appBar: AppBar(
         backgroundColor: const Color(0xffFFFFFF),
+        surfaceTintColor: const Color(0xffFFFFFF),
         title: Text(
           'Numerais',
           style: GoogleFonts.fredoka(
@@ -35,9 +36,9 @@ class _LevelInicialNumeralState extends State<LevelInicialNumeral> {
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: ResponsiveGridList(
-          horizontalGridMargin: 16,
+          horizontalGridMargin: 0,
           verticalGridMargin: 16,
-          minItemWidth: 80,
+          minItemWidth: 100,
           children: List.generate(10,
             (index) => InkWell(
               onTap: () {

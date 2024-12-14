@@ -16,6 +16,7 @@ class _TelaInicioGeometricasState extends State<TelaInicioGeometricas> {
       backgroundColor: const Color(0xffFFFFFF),
       appBar: AppBar(
         backgroundColor: const Color(0xffFFFFFF),
+        surfaceTintColor: const Color(0xffFFFFFF),
         title: Text(
           'Formas Geométricas',
           style: GoogleFonts.fredoka(
@@ -35,9 +36,9 @@ class _TelaInicioGeometricasState extends State<TelaInicioGeometricas> {
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: ResponsiveGridList(
-          horizontalGridMargin: 16,
+          horizontalGridMargin: 0,
           verticalGridMargin: 16,
-          minItemWidth: 80,
+          minItemWidth: 100,
           children: List.generate(4,
             (index) => ColoredBox(
               color: const Color(0xffF1A131),

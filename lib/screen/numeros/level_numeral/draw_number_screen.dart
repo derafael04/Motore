@@ -26,6 +26,7 @@ class _DrawNumberScreenState extends State<DrawNumberScreen> {
           ),
         ),
         backgroundColor: const Color(0xffFFFFFF),
+        surfaceTintColor: const Color(0xffFFFFFF),
         centerTitle: true,
         leading: IconButton(
           onPressed: () {
@@ -110,14 +111,14 @@ class BackgroundPainter extends CustomPainter {
     final paint = Paint()
       ..color = Colors.grey.withOpacity(0.3)
       ..style = PaintingStyle.stroke
-      ..strokeWidth = 24.0;
+      ..strokeWidth = 30.0;
 
     // Desenha o número "0"
     canvas.drawOval(
       Rect.fromCenter(
-        center: Offset(size.width / 2, size.height / 2),
-        width: size.width * 0.6,
-        height: size.height * 0.5,
+        center: Offset(size.width / 2, size.height / 2.5),
+        width: size.width * 0.68,
+        height: size.height * 0.38,
       ),
       paint,
     );

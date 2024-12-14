@@ -16,6 +16,7 @@ class _TelaInicioTracosState extends State<TelaInicioTracos> {
       backgroundColor: const Color(0xffFFFFFF),
       appBar: AppBar(
         backgroundColor: const Color(0xffFFFFFF),
+        surfaceTintColor: const Color(0xffFFFFFF),
         title: Text(
           'Traçados',
           style: GoogleFonts.fredoka(
@@ -35,10 +36,10 @@ class _TelaInicioTracosState extends State<TelaInicioTracos> {
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: ResponsiveGridList(
-          horizontalGridMargin: 16,
+          horizontalGridMargin: 0,
           verticalGridMargin: 16,
-          minItemWidth: 80,
-          children: List.generate(4,
+          minItemWidth: 100,
+          children: List.generate(9,
             (index) => ColoredBox(
               color: const Color(0xffD83951),
               child: Padding(

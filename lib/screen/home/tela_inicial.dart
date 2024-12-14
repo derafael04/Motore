@@ -41,14 +41,14 @@ class _TelainicialState extends State<Telainicial> {
       //   ],
       // ),
       body: Padding(
-        padding: const EdgeInsets.fromLTRB(16, 24, 16, 16),
+        padding: const EdgeInsets.fromLTRB(16, 64, 16, 16),
         child: Column(
           children: [
             SizedBox(
-              height: 260,
-              width: 260,
+              height: 180,
+              width: 240,
               child: Image.asset('assets/images/logoback.png')),
-            const SizedBox(height: 24),
+            const SizedBox(height: 64),
             Row(
               children: [
                 InkWell(
