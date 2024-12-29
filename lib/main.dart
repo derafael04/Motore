@@ -5,6 +5,7 @@ import 'package:motore/screen/geometricas/level_geometricas/level_inicio_geometr
 import 'package:motore/screen/home/tela_inicial.dart';
 import 'package:motore/screen/login/tela_cadastro_login.dart';
 import 'package:motore/screen/login/tela_login.dart';
+import 'package:motore/screen/numeros/level_numeral/draw_number_one.dart';
 import 'package:motore/screen/numeros/level_numeral/draw_number_screen.dart';
 import 'package:motore/screen/numeros/level_numeral/level_inicial_numeral.dart';
 import 'package:motore/screen/tracos/level_tracos/level_inicio_tracos.dart';
@@ -27,6 +28,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xffE45828)),
         useMaterial3: true,
+        dialogTheme: DialogTheme(
+        shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      )),
       ),
       initialRoute: '/login',
       routes: {
@@ -37,7 +42,8 @@ class MyApp extends StatelessWidget {
         '/level_inicial_tracos': (context) => const TelaInicioTracos(),
         '/drawNumberScreen': (context) => const DrawNumberScreen(),
         '/login': (context) => const TelaLogin(),
-        '/telaCadastroLogin': (context) => const TelaCadastroLogin()
+        '/telaCadastroLogin': (context) => const TelaCadastroLogin(),
+        '/drawNumberOne': (context) => const DrawNumberOne(),
       },
     );
   }
