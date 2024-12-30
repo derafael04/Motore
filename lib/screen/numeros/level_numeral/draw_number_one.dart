@@ -203,6 +203,7 @@ class _DrawNumberOneState extends State<DrawNumberOne> {
               color: Color(0xff000000),
             ),
           ),
+          const SizedBox(width: 16),
           IconButton(
             onPressed: () {
               clear();
