@@ -222,6 +222,19 @@ class _DrawNumberOneState extends State<DrawNumberOne> {
         onPointerUp: onPointerUp,
         child: Stack(
           children: [
+            Positioned(
+              bottom: -112,
+              left: 32,
+              child: Text(
+                '1',
+                textAlign: TextAlign.center,
+                style: GoogleFonts.ralewayDots(
+                  color: Colors.grey[700],
+                  fontSize: MediaQuery.of(context).size.height * 0.94,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ),
             Positioned.fill(
               child: ValueListenableBuilder(
                 valueListenable: lines,
@@ -250,7 +263,7 @@ class _DrawNumberOneState extends State<DrawNumberOne> {
                 },
               ),
             ),
-            numeral()
+            //numeral()
           ],
         ),
       ),
@@ -264,26 +277,26 @@ class _DrawNumberOneState extends State<DrawNumberOne> {
       children: [
         // Bolinha superior
         Positioned(
-          top: 50,
-          left: (MediaQuery.of(context).size.width / 2) - 16,
+          top: 104,
+          left: (MediaQuery.of(context).size.width / 2) - 8,
           child: const CircleAvatar(
-            radius: 24,
+            radius: 22,
             backgroundColor: Color(0xffE45828),
           ),
         ),
         // Bolinha à esquerda
         const Positioned(
-          top: 120,
-          left: 32,
+          top: 180,
+          left: 58,
           child: CircleAvatar(
-            radius: 24,
+            radius: 22,
             backgroundColor: Color(0xffE45828),
           ),
         ),
         // Bolinha do centro
         Positioned(
-          top: MediaQuery.of(context).size.height * 0.3,
-          left: (MediaQuery.of(context).size.width / 2) - 16,
+          top: MediaQuery.of(context).size.height * 0.35,
+          left: (MediaQuery.of(context).size.width / 2) - 8,
           child: const CircleAvatar(
             radius: 24,
             backgroundColor: Color(0xffE45828),
@@ -291,24 +304,24 @@ class _DrawNumberOneState extends State<DrawNumberOne> {
         ),
         // Bolinhas inferiores
         Positioned(
-          top: MediaQuery.of(context).size.height * 0.6,
-          left: (MediaQuery.of(context).size.width / 2) - 128,
+          top: MediaQuery.of(context).size.height * 0.62,
+          left: (MediaQuery.of(context).size.width / 2) - 112,
           child: const CircleAvatar(
             radius: 24,
             backgroundColor: Color(0xffE45828),
           ),
         ),
         Positioned(
-          top: MediaQuery.of(context).size.height * 0.6,
-          left: (MediaQuery.of(context).size.width / 2) - 16,
+          top: MediaQuery.of(context).size.height * 0.62,
+          left: (MediaQuery.of(context).size.width / 2) - 8,
           child: const CircleAvatar(
             radius: 24,
             backgroundColor: Color(0xffE45828),
           ),
         ),
         Positioned(
-          top: MediaQuery.of(context).size.height * 0.6,
-          left: (MediaQuery.of(context).size.width / 2) + 96,
+          top: MediaQuery.of(context).size.height * 0.62,
+          left: (MediaQuery.of(context).size.width / 2) + 92,
           child: const CircleAvatar(
             radius: 24,
             backgroundColor: Color(0xffE45828),
