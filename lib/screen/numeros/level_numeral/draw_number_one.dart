@@ -250,12 +250,73 @@ class _DrawNumberOneState extends State<DrawNumberOne> {
                 },
               ),
             ),
+            numeral()
           ],
         ),
       ),
     );
   }
 
+  
+  Widget numeral() {
+    return Stack(
+      alignment: Alignment.center,
+      children: [
+        // Bolinha superior
+        Positioned(
+          top: 50,
+          left: (MediaQuery.of(context).size.width / 2) - 16,
+          child: const CircleAvatar(
+            radius: 24,
+            backgroundColor: Color(0xffE45828),
+          ),
+        ),
+        // Bolinha à esquerda
+        const Positioned(
+          top: 120,
+          left: 32,
+          child: CircleAvatar(
+            radius: 24,
+            backgroundColor: Color(0xffE45828),
+          ),
+        ),
+        // Bolinha do centro
+        Positioned(
+          top: MediaQuery.of(context).size.height * 0.3,
+          left: (MediaQuery.of(context).size.width / 2) - 16,
+          child: const CircleAvatar(
+            radius: 24,
+            backgroundColor: Color(0xffE45828),
+          ),
+        ),
+        // Bolinhas inferiores
+        Positioned(
+          top: MediaQuery.of(context).size.height * 0.6,
+          left: (MediaQuery.of(context).size.width / 2) - 128,
+          child: const CircleAvatar(
+            radius: 24,
+            backgroundColor: Color(0xffE45828),
+          ),
+        ),
+        Positioned(
+          top: MediaQuery.of(context).size.height * 0.6,
+          left: (MediaQuery.of(context).size.width / 2) - 16,
+          child: const CircleAvatar(
+            radius: 24,
+            backgroundColor: Color(0xffE45828),
+          ),
+        ),
+        Positioned(
+          top: MediaQuery.of(context).size.height * 0.6,
+          left: (MediaQuery.of(context).size.width / 2) + 96,
+          child: const CircleAvatar(
+            radius: 24,
+            backgroundColor: Color(0xffE45828),
+          ),
+        ),
+      ],
+    );
+  }
   @override
   void dispose() {
     lines.dispose();
