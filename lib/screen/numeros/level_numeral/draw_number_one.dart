@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:motore/util/number_draw.dart';
 import 'dart:ui';
 import 'package:perfect_freehand/perfect_freehand.dart';
 
@@ -12,6 +14,8 @@ class DrawNumberOne extends StatefulWidget {
 }
 
 class _DrawNumberOneState extends State<DrawNumberOne> {
+
+  int index = 0;
 
   StrokeOptions options = StrokeOptions(
     size: 16,
@@ -76,11 +80,12 @@ class _DrawNumberOneState extends State<DrawNumberOne> {
   
   @override
   Widget build(BuildContext context) {
+    index = ModalRoute.of(context)?.settings.arguments as int;
     return Scaffold(
       backgroundColor: const Color(0xffFFFFFF),
       appBar: AppBar(
         title: Text(
-          'Nivel 2',
+          'Nivel ${index + 1}',
           style: GoogleFonts.fredoka(
             color: Colors.grey[700],
             fontSize: 24,
@@ -223,17 +228,12 @@ class _DrawNumberOneState extends State<DrawNumberOne> {
         child: Stack(
           children: [
             Positioned(
-              bottom: -112,
-              left: 32,
-              child: Text(
-                '1',
-                textAlign: TextAlign.center,
-                style: GoogleFonts.ralewayDots(
-                  color: Colors.grey[700],
-                  fontSize: MediaQuery.of(context).size.height * 0.94,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
+              bottom: 114,
+              right: 0,
+              left: 0,
+              child: SvgPicture.asset(NumberDraw().getSvgByNumber(index),
+                height: MediaQuery.of(context).size.height * 0.7,
+              )
             ),
             Positioned.fill(
               child: ValueListenableBuilder(

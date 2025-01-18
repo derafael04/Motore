@@ -42,7 +42,7 @@ class _LevelInicialNumeralState extends State<LevelInicialNumeral> {
           children: List.generate(10,
             (index) => InkWell(
               onTap: () {
-                Navigator.pushNamed(context, '/drawNumberOne');
+                Navigator.pushNamed(context, '/drawNumberOne', arguments: index);
               },
               child: ColoredBox(
                 color: const Color(0xffE45828),
