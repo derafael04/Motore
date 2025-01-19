@@ -40,18 +40,23 @@ class _TelaInicioGeometricasState extends State<TelaInicioGeometricas> {
           verticalGridMargin: 16,
           minItemWidth: 100,
           children: List.generate(8,
-            (index) => ColoredBox(
-              color: const Color(0xffF1A131),
-              child: Padding(
-                padding: const EdgeInsets.all(32),
-                child: Text(
-                  'Nivel ${index + 1}',
-                  style: GoogleFonts.fredoka(
-                    color: const Color(0xffFFFFFF),
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
+            (index) => InkWell(
+              onTap: () {
+                Navigator.pushNamed(context, '/telaDrawGeometricas', arguments: index);
+              },
+              child: ColoredBox(
+                color: const Color(0xffF1A131),
+                child: Padding(
+                  padding: const EdgeInsets.all(32),
+                  child: Text(
+                    'Nivel ${index + 1}',
+                    style: GoogleFonts.fredoka(
+                      color: const Color(0xffFFFFFF),
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    textAlign: TextAlign.center,
                   ),
-                  textAlign: TextAlign.center,
                 ),
               ),
             ),

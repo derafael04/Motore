@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:motore/screen/alfabeto/draw_alphabet.dart';
 import 'package:motore/screen/alfabeto/level_alfabeto/level_inicial_alfabeto.dart';
+import 'package:motore/screen/geometricas/draw_geometricas.dart';
 import 'package:motore/screen/geometricas/level_geometricas/level_inicio_geometricas.dart';
 import 'package:motore/screen/home/tela_inicial.dart';
 import 'package:motore/screen/login/tela_cadastro_login.dart';
@@ -9,6 +10,7 @@ import 'package:motore/screen/login/tela_login.dart';
 import 'package:motore/screen/numeros/draw_number.dart';
 import 'package:motore/screen/numeros/level_numeral/draw_number_screen.dart';
 import 'package:motore/screen/numeros/level_numeral/level_inicial_numeral.dart';
+import 'package:motore/screen/tracos/draw_tracos.dart';
 import 'package:motore/screen/tracos/level_tracos/level_inicio_tracos.dart';
 
 void main() {
@@ -46,6 +48,8 @@ class MyApp extends StatelessWidget {
         '/telaCadastroLogin': (context) => const TelaCadastroLogin(),
         '/drawNumberOne': (context) => const TelaDrawNumber(),
         '/telaDrawAlphabet': (context) => const TelaDrawAlphabet(),
+        '/telaDrawGeometricas': (context) => const TelaDrawGeometricas(),
+        '/telaDrawTracos': (context) => const TelaDrawTracos(),
       },
     );
   }
