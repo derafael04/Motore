@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ionicons/ionicons.dart';
-import 'package:motore/screen/numeros/level_numeral/draw_number_one.dart';
+import 'package:motore/screen/numeros/draw_number.dart';
 import 'package:motore/util/number_draw.dart';
 import 'package:perfect_freehand/perfect_freehand.dart';
 
