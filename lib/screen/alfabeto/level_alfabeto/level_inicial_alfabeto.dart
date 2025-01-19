@@ -40,18 +40,23 @@ class _TelaInicialAlfabetoState extends State<TelaInicialAlfabeto> {
           verticalGridMargin: 16,
           minItemWidth: 100,
           children: List.generate(26,
-            (index) => ColoredBox(
-              color: const Color(0xff1F8785),
-              child: Padding(
-                padding: const EdgeInsets.all(32),
-                child: Text(
-                  'Nivel ${index + 1}',
-                  style: GoogleFonts.fredoka(
-                    color: const Color(0xffFFFFFF),
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
+            (index) => InkWell(
+              onTap: () {
+                Navigator.pushNamed(context, '/telaDrawAlphabet', arguments: index);
+              },
+              child: ColoredBox(
+                color: const Color(0xff1F8785),
+                child: Padding(
+                  padding: const EdgeInsets.all(32),
+                  child: Text(
+                    'Nivel ${index + 1}',
+                    style: GoogleFonts.fredoka(
+                      color: const Color(0xffFFFFFF),
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    textAlign: TextAlign.center,
                   ),
-                  textAlign: TextAlign.center,
                 ),
               ),
             ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:motore/screen/alfabeto/draw_alphabet.dart';
 import 'package:motore/screen/alfabeto/level_alfabeto/level_inicial_alfabeto.dart';
 import 'package:motore/screen/geometricas/level_geometricas/level_inicio_geometricas.dart';
 import 'package:motore/screen/home/tela_inicial.dart';
@@ -43,7 +44,8 @@ class MyApp extends StatelessWidget {
         '/drawNumberScreen': (context) => const DrawNumberScreen(),
         '/login': (context) => const TelaLogin(),
         '/telaCadastroLogin': (context) => const TelaCadastroLogin(),
-        '/drawNumberOne': (context) => const DrawNumberOne(),
+        '/drawNumberOne': (context) => const TelaDrawNumber(),
+        '/telaDrawAlphabet': (context) => const TelaDrawAlphabet(),
       },
     );
   }

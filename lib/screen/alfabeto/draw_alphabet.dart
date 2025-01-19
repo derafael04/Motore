@@ -1,20 +1,22 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:motore/screen/numeros/level_numeral/draw_number_one.dart';
 import 'package:motore/util/number_draw.dart';
-import 'dart:ui';
 import 'package:perfect_freehand/perfect_freehand.dart';
 
-class TelaDrawNumber extends StatefulWidget {
-  const TelaDrawNumber({super.key});
+class TelaDrawAlphabet extends StatefulWidget {
+  const TelaDrawAlphabet({super.key});
 
   @override
-  State<TelaDrawNumber> createState() => _TelaDrawNumberState();
+  State<TelaDrawAlphabet> createState() => _TelaDrawAlphabetState();
 }
 
-class _TelaDrawNumberState extends State<TelaDrawNumber> {
-
+class _TelaDrawAlphabetState extends State<TelaDrawAlphabet> {
+  
   int index = 0;
 
   StrokeOptions options = StrokeOptions(
@@ -231,7 +233,7 @@ class _TelaDrawNumberState extends State<TelaDrawNumber> {
               bottom: 114,
               right: 0,
               left: 0,
-              child: SvgPicture.asset(NumberDraw().getSvgByNumber(index),
+              child: SvgPicture.asset(NumberDraw().getSvgByLyrics(index),
                 height: MediaQuery.of(context).size.height * 0.7,
               )
             ),
@@ -270,7 +272,7 @@ class _TelaDrawNumberState extends State<TelaDrawNumber> {
     );
   }
   
-  Widget numeralDots() {
+  Widget letraDots() {
     return Stack(
       alignment: Alignment.center,
       children: [
@@ -329,69 +331,11 @@ class _TelaDrawNumberState extends State<TelaDrawNumber> {
       ],
     );
   }
-
+  
   @override
   void dispose() {
     lines.dispose();
     line.dispose();
     super.dispose();
   }
-
-}
-
-class StrokePainter extends CustomPainter {
-  const StrokePainter({
-    required this.color,
-    required this.lines,
-    required this.options,
-  });
-
-  final Color color;
-  final List<Stroke> lines;
-  final StrokeOptions options;
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    final paint = Paint()..color = color;
-
-    for (final line in lines) {
-      final outlinePoints = getStroke(line.points, options: options);
-
-      if (outlinePoints.isEmpty) {
-        continue;
-      } else if (outlinePoints.length < 2) {
-        // If the path only has one point, draw a dot.
-        canvas.drawCircle(
-          outlinePoints.first,
-          options.size / 2,
-          paint,
-        );
-      } else {
-        final path = Path();
-        path.moveTo(outlinePoints.first.dx, outlinePoints.first.dy);
-        for (int i = 0; i < outlinePoints.length - 1; ++i) {
-          final p0 = outlinePoints[i];
-          final p1 = outlinePoints[i + 1];
-          path.quadraticBezierTo(
-            p0.dx,
-            p0.dy,
-            (p0.dx + p1.dx) / 2,
-            (p0.dy + p1.dy) / 2,
-          );
-        }
-        // You'll see performance improvements if you cache this Path
-        // instead of creating a new one every paint.
-        canvas.drawPath(path, paint);
-      }
-    }
-  }
-
-  @override
-  bool shouldRepaint(CustomPainter oldDelegate) => true;
-}
-
-class Stroke {
-  final List<PointVector> points;
-
-  const Stroke(this.points);
 }
