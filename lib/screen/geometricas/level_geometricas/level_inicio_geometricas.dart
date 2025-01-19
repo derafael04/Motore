@@ -39,7 +39,7 @@ class _TelaInicioGeometricasState extends State<TelaInicioGeometricas> {
           horizontalGridMargin: 0,
           verticalGridMargin: 16,
           minItemWidth: 100,
-          children: List.generate(4,
+          children: List.generate(8,
             (index) => ColoredBox(
               color: const Color(0xffF1A131),
               child: Padding(

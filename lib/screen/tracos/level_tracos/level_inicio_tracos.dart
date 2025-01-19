@@ -39,7 +39,7 @@ class _TelaInicioTracosState extends State<TelaInicioTracos> {
           horizontalGridMargin: 0,
           verticalGridMargin: 16,
           minItemWidth: 100,
-          children: List.generate(9,
+          children: List.generate(6,
             (index) => ColoredBox(
               color: const Color(0xffD83951),
               child: Padding(

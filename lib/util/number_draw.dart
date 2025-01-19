@@ -4,6 +4,14 @@ class NumberDraw {
     return 'assets/numbers/$index.svg';
   }
 
+  String getSvgByFormas(int index) {
+    return 'assets/formas/forma-$index.svg';
+  }
+
+  String getSvgByTracados(int index) {
+    return 'assets/tracados/tracos-$index.svg';
+  }
+
   String getSvgByLyrics(int letra) {
     switch (letra) {
       case 0:
