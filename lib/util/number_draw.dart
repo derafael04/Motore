@@ -7,59 +7,59 @@ class NumberDraw {
   String getSvgByLyrics(int letra) {
     switch (letra) {
       case 0:
-        return 'assets/numbers/A.svg';
+        return 'assets/alphabet/A.svg';
       case 1:
-        return 'assets/numbers/B.svg';
+        return 'assets/alphabet/B.svg';
       case 2:
-        return 'assets/numbers/C.svg';
+        return 'assets/alphabet/C.svg';
       case 3:
-        return 'assets/numbers/D.svg';
+        return 'assets/alphabet/D.svg';
       case 4:
-        return 'assets/numbers/E.svg';
+        return 'assets/alphabet/E.svg';
       case 5:
-        return 'assets/numbers/F.svg';
+        return 'assets/alphabet/F.svg';
       case 6:
-        return 'assets/numbers/G.svg';
+        return 'assets/alphabet/G.svg';
       case 7:
-        return 'assets/numbers/H.svg';
+        return 'assets/alphabet/H.svg';
       case 8:
-        return 'assets/numbers/I.svg';
+        return 'assets/alphabet/I.svg';
       case 9:
-        return 'assets/numbers/J.svg';
+        return 'assets/alphabet/J.svg';
       case 10:
-        return 'assets/numbers/K.svg';
+        return 'assets/alphabet/K.svg';
       case 11:
-        return 'assets/numbers/L.svg';
+        return 'assets/alphabet/L.svg';
       case 12:
-        return 'assets/numbers/M.svg';
+        return 'assets/alphabet/M.svg';
       case 13:
-        return 'assets/numbers/N.svg';
+        return 'assets/alphabet/N.svg';
       case 14:
-        return 'assets/numbers/O.svg';
+        return 'assets/alphabet/O.svg';
       case 15:
-        return 'assets/numbers/P.svg';
+        return 'assets/alphabet/P.svg';
       case 16:
-        return 'assets/numbers/Q.svg';
+        return 'assets/alphabet/Q.svg';
       case 17:
-        return 'assets/numbers/R.svg';
+        return 'assets/alphabet/R.svg';
       case 18:
-        return 'assets/numbers/S.svg';
+        return 'assets/alphabet/S.svg';
       case 19:
-        return 'assets/numbers/T.svg';
+        return 'assets/alphabet/T.svg';
       case 20:
-        return 'assets/numbers/U.svg';
+        return 'assets/alphabet/U.svg';
       case 21:
-        return 'assets/numbers/V.svg';
+        return 'assets/alphabet/V.svg';
       case 22:
-        return 'assets/numbers/W.svg';
+        return 'assets/alphabet/W.svg';
       case 23:
-        return 'assets/numbers/X.svg';
+        return 'assets/alphabet/X.svg';
       case 24:
-        return 'assets/numbers/Y.svg';
+        return 'assets/alphabet/Y.svg';
       case 25:
-        return 'assets/numbers/Z.svg';
+        return 'assets/alphabet/Z.svg';
       default:
-        return 'assets/numbers/A.svg';
+        return 'assets/alphabet/A.svg';
     }
   }
 }
