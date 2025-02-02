@@ -263,7 +263,7 @@ class _TelaDrawNumberState extends State<TelaDrawNumber> {
                 },
               ),
             ),
-            //numeral()
+            numeralDots()
           ],
         ),
       ),
@@ -276,7 +276,7 @@ class _TelaDrawNumberState extends State<TelaDrawNumber> {
       children: [
         // Bolinha superior
         Positioned(
-          top: 104,
+          top: 124,
           left: (MediaQuery.of(context).size.width / 2) - 8,
           child: const CircleAvatar(
             radius: 22,
@@ -285,8 +285,8 @@ class _TelaDrawNumberState extends State<TelaDrawNumber> {
         ),
         // Bolinha à esquerda
         const Positioned(
-          top: 180,
-          left: 58,
+          top: 174,
+          left: 70,
           child: CircleAvatar(
             radius: 22,
             backgroundColor: Color(0xffE45828),
@@ -295,7 +295,7 @@ class _TelaDrawNumberState extends State<TelaDrawNumber> {
         // Bolinha do centro
         Positioned(
           top: MediaQuery.of(context).size.height * 0.35,
-          left: (MediaQuery.of(context).size.width / 2) - 8,
+          left: (MediaQuery.of(context).size.width / 2) - 16,
           child: const CircleAvatar(
             radius: 24,
             backgroundColor: Color(0xffE45828),
@@ -303,7 +303,7 @@ class _TelaDrawNumberState extends State<TelaDrawNumber> {
         ),
         // Bolinhas inferiores
         Positioned(
-          top: MediaQuery.of(context).size.height * 0.62,
+          top: MediaQuery.of(context).size.height * 0.57,
           left: (MediaQuery.of(context).size.width / 2) - 112,
           child: const CircleAvatar(
             radius: 24,
@@ -311,16 +311,16 @@ class _TelaDrawNumberState extends State<TelaDrawNumber> {
           ),
         ),
         Positioned(
-          top: MediaQuery.of(context).size.height * 0.62,
-          left: (MediaQuery.of(context).size.width / 2) - 8,
+          top: MediaQuery.of(context).size.height * 0.57,
+          left: (MediaQuery.of(context).size.width / 2) - 16,
           child: const CircleAvatar(
             radius: 24,
             backgroundColor: Color(0xffE45828),
           ),
         ),
         Positioned(
-          top: MediaQuery.of(context).size.height * 0.62,
-          left: (MediaQuery.of(context).size.width / 2) + 92,
+          top: MediaQuery.of(context).size.height * 0.57,
+          left: (MediaQuery.of(context).size.width / 2) + 76,
           child: const CircleAvatar(
             radius: 24,
             backgroundColor: Color(0xffE45828),
