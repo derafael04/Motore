@@ -221,6 +221,55 @@ class _TelaDrawNumberState extends State<TelaDrawNumber> {
           ),
         ],
       ),
+      bottomNavigationBar: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(bottom: 24),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                IconButton(
+                  onPressed: () {
+                    if (index > 0) {
+                      index--;
+                      Navigator.pop(context);
+                      Navigator.pushNamed(context, '/drawNumberOne', arguments: index);
+                    }
+                  },
+                  icon: const Icon(
+                    Icons.arrow_back_ios,
+                    size: 20,
+                    color: Color(0xff000000),
+                  ),
+                ),
+                Text(
+                  'Nivel ${index + 1}',
+                  style: GoogleFonts.fredoka(
+                    color: Colors.grey[700],
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                IconButton(
+                  onPressed: () {
+                    if (index < 9) {
+                      index++;
+                      Navigator.pop(context);
+                      Navigator.pushNamed(context, '/drawNumberOne', arguments: index);
+                    }
+                  },
+                  icon: const Icon(
+                    Icons.arrow_forward_ios,
+                    size: 20,
+                    color: Color(0xff000000),
+                  ),
+                ),
+              ],
+            ),
+          )
+        ],
+      ),
       body: Listener(
         onPointerDown: onPointerDown,
         onPointerMove: onPointerMove,
@@ -263,13 +312,13 @@ class _TelaDrawNumberState extends State<TelaDrawNumber> {
                 },
               ),
             ),
-            numeralDots()
+            //numeralDots()
           ],
         ),
       ),
     );
   }
-  
+
   Widget numeralDots() {
     return Stack(
       alignment: Alignment.center,
@@ -278,54 +327,75 @@ class _TelaDrawNumberState extends State<TelaDrawNumber> {
         Positioned(
           top: 124,
           left: (MediaQuery.of(context).size.width / 2) - 8,
-          child: const CircleAvatar(
-            radius: 22,
-            backgroundColor: Color(0xffE45828),
+          child: GestureDetector(
+            onHorizontalDragUpdate: (details) {
+              if (details.delta.dx > 0) {
+                print('Segunda etapa Ok');
+              }
+            },
+            child: const CircleAvatar(
+              radius: 22,
+              backgroundColor: Color(0xffE45828),
+            ),
           ),
         ),
         // Bolinha à esquerda
-        const Positioned(
+        Positioned(
           top: 174,
           left: 70,
-          child: CircleAvatar(
-            radius: 22,
-            backgroundColor: Color(0xffE45828),
+          child: GestureDetector(
+            onHorizontalDragUpdate: (details) {
+              if (details.delta.dx > 0) {
+                print('Primeira etapa Ok');
+              }
+            },
+            child: const CircleAvatar(
+              radius: 22,
+              backgroundColor: Color(0xffE45828),
+            ),
           ),
         ),
         // Bolinha do centro
-        Positioned(
-          top: MediaQuery.of(context).size.height * 0.35,
-          left: (MediaQuery.of(context).size.width / 2) - 16,
-          child: const CircleAvatar(
-            radius: 24,
-            backgroundColor: Color(0xffE45828),
-          ),
-        ),
+        // Positioned(
+        //   top: MediaQuery.of(context).size.height * 0.35,
+        //   left: (MediaQuery.of(context).size.width / 2) - 16,
+        //   child: const CircleAvatar(
+        //     radius: 24,
+        //     backgroundColor: Color(0xffE45828),
+        //   ),
+        // ),
         // Bolinhas inferiores
         Positioned(
           top: MediaQuery.of(context).size.height * 0.57,
           left: (MediaQuery.of(context).size.width / 2) - 112,
-          child: const CircleAvatar(
-            radius: 24,
-            backgroundColor: Color(0xffE45828),
+          child: GestureDetector(
+            onHorizontalDragUpdate: (details) {
+              if (details.delta.dx > 0) {
+                print('Terceira etapa Ok');
+              }
+            },
+            child: const CircleAvatar(
+              radius: 24,
+              backgroundColor: Color(0xffE45828),
+            ),
           ),
         ),
-        Positioned(
-          top: MediaQuery.of(context).size.height * 0.57,
-          left: (MediaQuery.of(context).size.width / 2) - 16,
-          child: const CircleAvatar(
-            radius: 24,
-            backgroundColor: Color(0xffE45828),
-          ),
-        ),
-        Positioned(
-          top: MediaQuery.of(context).size.height * 0.57,
-          left: (MediaQuery.of(context).size.width / 2) + 76,
-          child: const CircleAvatar(
-            radius: 24,
-            backgroundColor: Color(0xffE45828),
-          ),
-        ),
+        // Positioned(
+        //   top: MediaQuery.of(context).size.height * 0.57,
+        //   left: (MediaQuery.of(context).size.width / 2) - 16,
+        //   child: const CircleAvatar(
+        //     radius: 24,
+        //     backgroundColor: Color(0xffE45828),
+        //   ),
+        // ),
+        // Positioned(
+        //   top: MediaQuery.of(context).size.height * 0.57,
+        //   left: (MediaQuery.of(context).size.width / 2) + 76,
+        //   child: const CircleAvatar(
+        //     radius: 24,
+        //     backgroundColor: Color(0xffE45828),
+        //   ),
+        // ),
       ],
     );
   }
