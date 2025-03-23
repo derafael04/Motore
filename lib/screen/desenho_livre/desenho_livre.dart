@@ -1,21 +1,18 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ionicons/ionicons.dart';
-import 'package:motore/util/number_draw.dart';
-import 'dart:ui';
+import 'package:motore/screen/numeros/draw_number.dart';
 import 'package:perfect_freehand/perfect_freehand.dart';
 
-class TelaDrawNumber extends StatefulWidget {
-  const TelaDrawNumber({super.key});
+class TelaDesenhoLivre extends StatefulWidget {
+  const TelaDesenhoLivre({super.key});
 
   @override
-  State<TelaDrawNumber> createState() => _TelaDrawNumberState();
+  State<TelaDesenhoLivre> createState() => _TelaDesenhoLivreState();
 }
 
-class _TelaDrawNumberState extends State<TelaDrawNumber> {
-
-  int index = 0;
+class _TelaDesenhoLivreState extends State<TelaDesenhoLivre> {
 
   StrokeOptions options = StrokeOptions(
     size: 16,
@@ -77,15 +74,14 @@ class _TelaDrawNumberState extends State<TelaDrawNumber> {
     lines.value = [...lines.value, line.value!];
     line.value = null;
   }
+
   
   @override
   Widget build(BuildContext context) {
-    index = ModalRoute.of(context)?.settings.arguments as int;
     return Scaffold(
-      backgroundColor: const Color(0xffFFFFFF),
       appBar: AppBar(
         title: Text(
-          'Nivel ${index + 1}',
+          'Desenho Livre',
           style: GoogleFonts.fredoka(
             color: Colors.grey[700],
             fontSize: 24,
@@ -221,69 +217,12 @@ class _TelaDrawNumberState extends State<TelaDrawNumber> {
           ),
         ],
       ),
-      // bottomNavigationBar: Column(
-      //   mainAxisSize: MainAxisSize.min,
-      //   children: [
-      //     Padding(
-      //       padding: const EdgeInsets.only(bottom: 24),
-      //       child: Row(
-      //         mainAxisAlignment: MainAxisAlignment.center,
-      //         children: [
-      //           IconButton(
-      //             onPressed: () {
-      //               if (index > 0) {
-      //                 index--;
-      //                 Navigator.pop(context);
-      //                 Navigator.pushNamed(context, '/drawNumberOne', arguments: index);
-      //               }
-      //             },
-      //             icon: const Icon(
-      //               Icons.arrow_back_ios,
-      //               size: 20,
-      //               color: Color(0xff000000),
-      //             ),
-      //           ),
-      //           Text(
-      //             'Nivel ${index + 1}',
-      //             style: GoogleFonts.fredoka(
-      //               color: Colors.grey[700],
-      //               fontSize: 16,
-      //               fontWeight: FontWeight.bold,
-      //             ),
-      //           ),
-      //           IconButton(
-      //             onPressed: () {
-      //               if (index < 9) {
-      //                 index++;
-      //                 Navigator.pop(context);
-      //                 Navigator.pushNamed(context, '/drawNumberOne', arguments: index);
-      //               }
-      //             },
-      //             icon: const Icon(
-      //               Icons.arrow_forward_ios,
-      //               size: 20,
-      //               color: Color(0xff000000),
-      //             ),
-      //           ),
-      //         ],
-      //       ),
-      //     )
-      //   ],
-      // ),
       body: Listener(
         onPointerDown: onPointerDown,
         onPointerMove: onPointerMove,
         onPointerUp: onPointerUp,
         child: Stack(
           children: [
-            Positioned(
-              bottom: 114,
-              right: 0,
-              left: 0,
-              child: SvgPicture.asset(NumberDraw().getSvgByNumber(index+1),
-                height: MediaQuery.of(context).size.height * 0.45,
-              )
-            ),
             Positioned.fill(
               child: ValueListenableBuilder(
                 valueListenable: lines,
@@ -318,150 +257,4 @@ class _TelaDrawNumberState extends State<TelaDrawNumber> {
       ),
     );
   }
-
-  Widget numeralDots() {
-    return Stack(
-      alignment: Alignment.center,
-      children: [
-        // Bolinha superior
-        Positioned(
-          top: 124,
-          left: (MediaQuery.of(context).size.width / 2) - 8,
-          child: GestureDetector(
-            onHorizontalDragUpdate: (details) {
-              if (details.delta.dx > 0) {
-                print('Segunda etapa Ok');
-              }
-            },
-            child: const CircleAvatar(
-              radius: 22,
-              backgroundColor: Color(0xffE45828),
-            ),
-          ),
-        ),
-        // Bolinha à esquerda
-        Positioned(
-          top: 174,
-          left: 70,
-          child: GestureDetector(
-            onHorizontalDragUpdate: (details) {
-              if (details.delta.dx > 0) {
-                print('Primeira etapa Ok');
-              }
-            },
-            child: const CircleAvatar(
-              radius: 22,
-              backgroundColor: Color(0xffE45828),
-            ),
-          ),
-        ),
-        // Bolinha do centro
-        // Positioned(
-        //   top: MediaQuery.of(context).size.height * 0.35,
-        //   left: (MediaQuery.of(context).size.width / 2) - 16,
-        //   child: const CircleAvatar(
-        //     radius: 24,
-        //     backgroundColor: Color(0xffE45828),
-        //   ),
-        // ),
-        // Bolinhas inferiores
-        Positioned(
-          top: MediaQuery.of(context).size.height * 0.57,
-          left: (MediaQuery.of(context).size.width / 2) - 112,
-          child: GestureDetector(
-            onHorizontalDragUpdate: (details) {
-              if (details.delta.dx > 0) {
-                print('Terceira etapa Ok');
-              }
-            },
-            child: const CircleAvatar(
-              radius: 24,
-              backgroundColor: Color(0xffE45828),
-            ),
-          ),
-        ),
-        // Positioned(
-        //   top: MediaQuery.of(context).size.height * 0.57,
-        //   left: (MediaQuery.of(context).size.width / 2) - 16,
-        //   child: const CircleAvatar(
-        //     radius: 24,
-        //     backgroundColor: Color(0xffE45828),
-        //   ),
-        // ),
-        // Positioned(
-        //   top: MediaQuery.of(context).size.height * 0.57,
-        //   left: (MediaQuery.of(context).size.width / 2) + 76,
-        //   child: const CircleAvatar(
-        //     radius: 24,
-        //     backgroundColor: Color(0xffE45828),
-        //   ),
-        // ),
-      ],
-    );
-  }
-
-  @override
-  void dispose() {
-    lines.dispose();
-    line.dispose();
-    super.dispose();
-  }
-
-}
-
-class StrokePainter extends CustomPainter {
-  const StrokePainter({
-    required this.color,
-    required this.lines,
-    required this.options,
-  });
-
-  final Color color;
-  final List<Stroke> lines;
-  final StrokeOptions options;
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    final paint = Paint()..color = color;
-
-    for (final line in lines) {
-      final outlinePoints = getStroke(line.points, options: options);
-
-      if (outlinePoints.isEmpty) {
-        continue;
-      } else if (outlinePoints.length < 2) {
-        // If the path only has one point, draw a dot.
-        canvas.drawCircle(
-          outlinePoints.first,
-          options.size / 2,
-          paint,
-        );
-      } else {
-        final path = Path();
-        path.moveTo(outlinePoints.first.dx, outlinePoints.first.dy);
-        for (int i = 0; i < outlinePoints.length - 1; ++i) {
-          final p0 = outlinePoints[i];
-          final p1 = outlinePoints[i + 1];
-          path.quadraticBezierTo(
-            p0.dx,
-            p0.dy,
-            (p0.dx + p1.dx) / 2,
-            (p0.dy + p1.dy) / 2,
-          );
-        }
-        // You'll see performance improvements if you cache this Path
-        // instead of creating a new one every paint.
-        canvas.drawPath(path, paint);
-      }
-    }
-  }
-
-  @override
-  bool shouldRepaint(CustomPainter oldDelegate) => true;
-}
-
-class Stroke {
-  final List<PointVector> points;
-
-  const Stroke(this.points);
 }

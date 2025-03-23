@@ -157,6 +157,35 @@ class _TelainicialState extends State<Telainicial> {
                   )
                 ],
               ),
+              const SizedBox(height: 24),
+              Row(
+                children: [
+                  InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(context, '/telaDesenhoLivre');
+                    },
+                    child: Container(
+                      height: 120,
+                      width: (MediaQuery.of(context).size.width - 48) / 2,
+                      decoration: BoxDecoration(
+                        color: const Color(0xff0481BA),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Center(
+                        child: Text(
+                          'Desenho \nLivre',
+                          style: GoogleFonts.fredoka(
+                            color: const Color(0xffFFFFFF),
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
         ),

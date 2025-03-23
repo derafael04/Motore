@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:motore/screen/alfabeto/draw_alphabet.dart';
 import 'package:motore/screen/alfabeto/level_alfabeto/level_inicial_alfabeto.dart';
+import 'package:motore/screen/desenho_livre/desenho_livre.dart';
 import 'package:motore/screen/geometricas/draw_geometricas.dart';
 import 'package:motore/screen/geometricas/level_geometricas/level_inicio_geometricas.dart';
 import 'package:motore/screen/home/tela_inicial.dart';
@@ -50,6 +51,7 @@ class MyApp extends StatelessWidget {
         '/telaDrawAlphabet': (context) => const TelaDrawAlphabet(),
         '/telaDrawGeometricas': (context) => const TelaDrawGeometricas(),
         '/telaDrawTracos': (context) => const TelaDrawTracos(),
+        '/telaDesenhoLivre': (context) => const TelaDesenhoLivre(),
       },
     );
   }
