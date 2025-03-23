@@ -117,7 +117,7 @@ class _TelaDrawAlphabetState extends State<TelaDrawAlphabet> {
                       return SafeArea(
                         child: SizedBox(
                           width: double.infinity,
-                          height: MediaQuery.of(context).size.height * 0.35,
+                          height: MediaQuery.of(context).size.height * 0.4,
                           child: Padding(
                             padding: const EdgeInsets.symmetric(vertical: 20),
                             child: Column(

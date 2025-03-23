@@ -115,7 +115,7 @@ class _TelaDrawGeometricasState extends State<TelaDrawGeometricas> {
                       return SafeArea(
                         child: SizedBox(
                           width: double.infinity,
-                          height: MediaQuery.of(context).size.height * 0.35,
+                          height: MediaQuery.of(context).size.height * 0.4,
                           child: Padding(
                             padding: const EdgeInsets.symmetric(vertical: 20),
                             child: Column(
@@ -135,7 +135,7 @@ class _TelaDrawGeometricasState extends State<TelaDrawGeometricas> {
                                 ),
                                 Slider(
                                   value: options.size,
-                                  activeColor: const Color(0xff428dcc),
+                                  activeColor: const Color(0xffF1A131),
                                   min: 1,
                                   max: 50,
                                   divisions: 100,
@@ -157,7 +157,7 @@ class _TelaDrawGeometricasState extends State<TelaDrawGeometricas> {
                                   ),
                                 ),
                                 Slider(
-                                  activeColor: const Color(0xff428dcc),
+                                  activeColor: const Color(0xffF1A131),
                                   value: options.thinning,
                                   min: -1,
                                   max: 1,
@@ -180,7 +180,7 @@ class _TelaDrawGeometricasState extends State<TelaDrawGeometricas> {
                                   ),
                                 ),
                                 Slider(
-                                  activeColor: const Color(0xff428dcc),
+                                  activeColor: const Color(0xffF1A131),
                                   value: options.streamline,
                                   min: 0,
                                   max: 1,
@@ -241,7 +241,7 @@ class _TelaDrawGeometricasState extends State<TelaDrawGeometricas> {
                 builder: (context, lines, _) {
                   return CustomPaint(
                     painter: StrokePainter(
-                      color: const Color(0xff428dcc),
+                      color: const Color(0xffF1A131),
                       lines: lines,
                       options: options,
                     ),
@@ -255,7 +255,7 @@ class _TelaDrawGeometricasState extends State<TelaDrawGeometricas> {
                 builder: (context, line, _) {
                   return CustomPaint(
                     painter: StrokePainter(
-                      color: const Color(0xff428dcc),
+                      color: const Color(0xffF1A131),
                       lines: line == null ? [] : [line],
                       options: options,
                     ),
@@ -280,7 +280,7 @@ class _TelaDrawGeometricasState extends State<TelaDrawGeometricas> {
           left: (MediaQuery.of(context).size.width / 2) - 8,
           child: const CircleAvatar(
             radius: 22,
-            backgroundColor: Color(0xff428dcc),
+            backgroundColor: Color(0xffF1A131),
           ),
         ),
         // Bolinha à esquerda
@@ -289,7 +289,7 @@ class _TelaDrawGeometricasState extends State<TelaDrawGeometricas> {
           left: 58,
           child: CircleAvatar(
             radius: 22,
-            backgroundColor: Color(0xff428dcc),
+            backgroundColor: Color(0xffF1A131),
           ),
         ),
         // Bolinha do centro
@@ -298,7 +298,7 @@ class _TelaDrawGeometricasState extends State<TelaDrawGeometricas> {
           left: (MediaQuery.of(context).size.width / 2) - 8,
           child: const CircleAvatar(
             radius: 24,
-            backgroundColor: Color(0xff428dcc),
+            backgroundColor: Color(0xffF1A131),
           ),
         ),
         // Bolinhas inferiores
@@ -307,7 +307,7 @@ class _TelaDrawGeometricasState extends State<TelaDrawGeometricas> {
           left: (MediaQuery.of(context).size.width / 2) - 112,
           child: const CircleAvatar(
             radius: 24,
-            backgroundColor: Color(0xff428dcc),
+            backgroundColor: Color(0xffF1A131),
           ),
         ),
         Positioned(
@@ -315,7 +315,7 @@ class _TelaDrawGeometricasState extends State<TelaDrawGeometricas> {
           left: (MediaQuery.of(context).size.width / 2) - 8,
           child: const CircleAvatar(
             radius: 24,
-            backgroundColor: Color(0xff428dcc),
+            backgroundColor: Color(0xffF1A131),
           ),
         ),
         Positioned(
@@ -323,7 +323,7 @@ class _TelaDrawGeometricasState extends State<TelaDrawGeometricas> {
           left: (MediaQuery.of(context).size.width / 2) + 92,
           child: const CircleAvatar(
             radius: 24,
-            backgroundColor: Color(0xff428dcc),
+            backgroundColor: Color(0xffF1A131),
           ),
         ),
       ],
