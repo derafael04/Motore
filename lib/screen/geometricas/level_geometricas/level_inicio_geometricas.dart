@@ -39,7 +39,7 @@ class _TelaInicioGeometricasState extends State<TelaInicioGeometricas> {
           horizontalGridMargin: 0,
           verticalGridMargin: 16,
           minItemWidth: 100,
-          children: List.generate(8,
+          children: List.generate(7,
             (index) => InkWell(
               onTap: () {
                 Navigator.pushNamed(context, '/telaDrawGeometricas', arguments: index);

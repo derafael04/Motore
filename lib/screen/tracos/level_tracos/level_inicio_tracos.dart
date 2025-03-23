@@ -39,7 +39,7 @@ class _TelaInicioTracosState extends State<TelaInicioTracos> {
           horizontalGridMargin: 0,
           verticalGridMargin: 16,
           minItemWidth: 100,
-          children: List.generate(6,
+          children: List.generate(4,
             (index) => InkWell(
               onTap: () {
                 Navigator.pushNamed(context, '/telaDrawTracos', arguments: index);
