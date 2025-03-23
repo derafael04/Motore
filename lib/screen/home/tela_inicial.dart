@@ -40,123 +40,125 @@ class _TelainicialState extends State<Telainicial> {
       //     ),
       //   ],
       // ),
-      body: Padding(
-        padding: const EdgeInsets.fromLTRB(16, 64, 16, 16),
-        child: Column(
-          children: [
-            SizedBox(
-              height: 180,
-              width: 240,
-              child: Image.asset('assets/images/logoback.png')),
-            const SizedBox(height: 64),
-            Row(
-              children: [
-                InkWell(
-                  onTap: () {
-                    Navigator.pushNamed(context, '/level_inicial_alfabeto');
-                  },
-                  child: Container(
-                    height: 120,
-                    width: (MediaQuery.of(context).size.width - 48) / 2,
-                    decoration: BoxDecoration(
-                      color: const Color(0xff1F8785),
-                      borderRadius: BorderRadius.circular(10),
-                      image: const DecorationImage(image: AssetImage('assets/images/abc.png'), alignment: Alignment.centerRight),
-                    ),
-                    child: Center(
-                      child: Text(
-                        'Alfabeto',
-                        style: GoogleFonts.fredoka(
-                          color: const Color(0xffFFFFFF),
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(16, 64, 16, 16),
+          child: Column(
+            children: [
+              SizedBox(
+                height: 180,
+                width: 240,
+                child: Image.asset('assets/images/logoback.png')),
+              const SizedBox(height: 64),
+              Row(
+                children: [
+                  InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(context, '/level_inicial_alfabeto');
+                    },
+                    child: Container(
+                      height: 120,
+                      width: (MediaQuery.of(context).size.width - 48) / 2,
+                      decoration: BoxDecoration(
+                        color: const Color(0xff1F8785),
+                        borderRadius: BorderRadius.circular(10),
+                        image: const DecorationImage(image: AssetImage('assets/images/abc.png'), alignment: Alignment.centerRight),
+                      ),
+                      child: Center(
+                        child: Text(
+                          'Alfabeto',
+                          style: GoogleFonts.fredoka(
+                            color: const Color(0xffFFFFFF),
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ),
                   ),
-                ),
-                const SizedBox(width: 16),
-                InkWell(
-                  onTap: () {
-                    Navigator.pushNamed(context, '/level_inicial_numeral');
-                  },
-                  child: Container(
-                    height: 120,
-                    width: (MediaQuery.of(context).size.width - 48) / 2,
-                    decoration: BoxDecoration(
-                      color: const Color(0xffE45828),
-                      borderRadius: BorderRadius.circular(10),
-                      image: const DecorationImage(image: AssetImage('assets/images/numeral.png'), alignment: Alignment.centerRight),
+                  const SizedBox(width: 16),
+                  InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(context, '/level_inicial_numeral');
+                    },
+                    child: Container(
+                      height: 120,
+                      width: (MediaQuery.of(context).size.width - 48) / 2,
+                      decoration: BoxDecoration(
+                        color: const Color(0xffE45828),
+                        borderRadius: BorderRadius.circular(10),
+                        image: const DecorationImage(image: AssetImage('assets/images/numeral.png'), alignment: Alignment.centerRight),
+                      ),
+                      child: Center(
+                        child: Text(
+                          'Numerais',
+                          style: GoogleFonts.fredoka(
+                            color: const Color(0xffFFFFFF),
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
                     ),
-                    child: Center(
-                      child: Text(
-                        'Numerais',
-                        style: GoogleFonts.fredoka(
-                          color: const Color(0xffFFFFFF),
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
+                  )
+                ],
+              ),
+              const SizedBox(height: 24),
+              Row(
+                children: [
+                  InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(context, '/level_inicial_tracos');
+                    },
+                    child: Container(
+                      height: 120,
+                      width: (MediaQuery.of(context).size.width - 48) / 2,
+                      decoration: BoxDecoration(
+                        color: const Color(0xffD83951),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Center(
+                        child: Text(
+                          'Traçados',
+                          style: GoogleFonts.fredoka(
+                            color: const Color(0xffFFFFFF),
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ),
                   ),
-                )
-              ],
-            ),
-            const SizedBox(height: 24),
-            Row(
-              children: [
-                InkWell(
-                  onTap: () {
-                    Navigator.pushNamed(context, '/level_inicial_tracos');
-                  },
-                  child: Container(
-                    height: 120,
-                    width: (MediaQuery.of(context).size.width - 48) / 2,
-                    decoration: BoxDecoration(
-                      color: const Color(0xffD83951),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Center(
-                      child: Text(
-                        'Traçados',
-                        style: GoogleFonts.fredoka(
-                          color: const Color(0xffFFFFFF),
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
+                  const SizedBox(width: 16),
+                  InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(context, '/level_inicial_geometricas');
+                    },
+                    child: Container(
+                      height: 120,
+                      width: (MediaQuery.of(context).size.width - 48) / 2,
+                      decoration: BoxDecoration(
+                        color: const Color(0xffF1A131),
+                        borderRadius: BorderRadius.circular(10),
+                        image: const DecorationImage(image: AssetImage('assets/images/formas.png'), alignment: Alignment.centerRight),
+                      ),
+                      child: Center(
+                        child: Text(
+                          'Formas Geométricas',
+                          style: GoogleFonts.fredoka(
+                            color: const Color(0xffFFFFFF),
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          textAlign: TextAlign.center,
                         ),
                       ),
                     ),
-                  ),
-                ),
-                const SizedBox(width: 16),
-                InkWell(
-                  onTap: () {
-                    Navigator.pushNamed(context, '/level_inicial_geometricas');
-                  },
-                  child: Container(
-                    height: 120,
-                    width: (MediaQuery.of(context).size.width - 48) / 2,
-                    decoration: BoxDecoration(
-                      color: const Color(0xffF1A131),
-                      borderRadius: BorderRadius.circular(10),
-                      image: const DecorationImage(image: AssetImage('assets/images/formas.png'), alignment: Alignment.centerRight),
-                    ),
-                    child: Center(
-                      child: Text(
-                        'Formas Geométricas',
-                        style: GoogleFonts.fredoka(
-                          color: const Color(0xffFFFFFF),
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                  ),
-                )
-              ],
-            ),
-          ],
+                  )
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
