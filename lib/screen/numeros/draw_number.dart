@@ -281,7 +281,7 @@ class _TelaDrawNumberState extends State<TelaDrawNumber> {
               right: 0,
               left: 0,
               child: SvgPicture.asset(NumberDraw().getSvgByNumber(index+1),
-                height: MediaQuery.of(context).size.height * 0.7,
+                height: MediaQuery.of(context).size.height * 0.45,
               )
             ),
             Positioned.fill(
