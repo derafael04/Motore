@@ -41,6 +41,10 @@
 			<string>UIInterfaceOrientationLandscapeLeft</string>
 			<string>UIInterfaceOrientationLandscapeRight</string>
 		</array>
+		<key>NSPhotoLibraryUsageDescription</key>
+		<string>O aplicativo precisa acessar a galeria para salvar imagens.</string>
+		<key>NSPhotoLibraryAddUsageDescription</key>
+		<string>O aplicativo precisa adicionar imagens à galeria.</string>
 		<key>CADisableMinimumFrameDurationOnPhone</key>
 		<true/>
 		<key>UIApplicationSupportsIndirectInputEvents</key>

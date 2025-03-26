@@ -1,9 +1,12 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:image_gallery_saver/image_gallery_saver.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:motore/screen/numeros/draw_number.dart';
 import 'package:perfect_freehand/perfect_freehand.dart';
+import 'package:permission_handler/permission_handler.dart';
+import 'package:screenshot/screenshot.dart';
 
 class TelaDesenhoLivre extends StatefulWidget {
   const TelaDesenhoLivre({super.key});
@@ -13,6 +16,7 @@ class TelaDesenhoLivre extends StatefulWidget {
 }
 
 class _TelaDesenhoLivreState extends State<TelaDesenhoLivre> {
+  ScreenshotController screenshotController = ScreenshotController(); 
 
   StrokeOptions options = StrokeOptions(
     size: 16,
@@ -75,7 +79,16 @@ class _TelaDesenhoLivreState extends State<TelaDesenhoLivre> {
     line.value = null;
   }
 
-  
+  Future<bool> _requestPermission() async {
+    var status = await Permission.photos.request();
+    if (status.isGranted) {
+      return true;
+    } else if (status.isDenied || status.isPermanentlyDenied) {
+      openAppSettings();
+    }
+    return false;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -100,106 +113,16 @@ class _TelaDesenhoLivreState extends State<TelaDesenhoLivre> {
         actions: [
           InkWell(
             onTap: () {
-              showModalBottomSheet(
-                context: context,
-                isScrollControlled: true,
-                enableDrag: false,
-                backgroundColor: const Color(0xffFFFFFF),
-                builder: (BuildContext context) {
-                  return StatefulBuilder (
-                    builder: (context, setState) {
-                      return SafeArea(
-                        child: SizedBox(
-                          width: double.infinity,
-                          height: MediaQuery.of(context).size.height * 0.4,
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 20),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Text(
-                                    'Tamanho',
-                                  textAlign: TextAlign.start,
-                                  overflow: TextOverflow.ellipsis,
-                                  style: GoogleFonts.fredoka(
-                                    color: Colors.grey[700],
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                                Slider(
-                                  value: options.size,
-                                  activeColor: const Color(0xffE45828),
-                                  min: 1,
-                                  max: 50,
-                                  divisions: 100,
-                                  label: options.size.round().toString(),
-                                  onChanged: (double value) => {
-                                    setState(() {
-                                      options.size = value;
-                                    })
-                                  },
-                                ),
-                                Text(
-                                  'Afinamento',
-                                  textAlign: TextAlign.start,
-                                  overflow: TextOverflow.ellipsis,
-                                  style: GoogleFonts.fredoka(
-                                    color: Colors.grey[700],
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                                Slider(
-                                  activeColor: const Color(0xffE45828),
-                                  value: options.thinning,
-                                  min: -1,
-                                  max: 1,
-                                  divisions: 100,
-                                  label: options.thinning.toStringAsFixed(2),
-                                  onChanged: (double value) => {
-                                    setState(() {
-                                      options.thinning = value;
-                                    })
-                                  },
-                                ),
-                                Text(
-                                    'Suavização',
-                                  textAlign: TextAlign.start,
-                                  overflow: TextOverflow.ellipsis,
-                                  style: GoogleFonts.fredoka(
-                                    color: Colors.grey[700],
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                                Slider(
-                                  activeColor: const Color(0xffE45828),
-                                  value: options.streamline,
-                                  min: 0,
-                                  max: 1,
-                                  divisions: 100,
-                                  label: options.streamline.toStringAsFixed(2),
-                                  onChanged: (double value) => {
-                                    setState(() {
-                                      options.streamline = value;
-                                    })
-                                  },
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      );
-                    },
-                  );
-                },
-              );
+              screenshotController.capture().then((image) async {
+                if (await _requestPermission()) {
+                  await ImageGallerySaver.saveImage(image!);
+                } else {
+                  // TRATAR ERRO
+                }
+              });
             },
             child: const Icon(
-              Ionicons.pencil,
+              Ionicons.save_outline,
               size: 18,
               color: Color(0xff000000),
             ),
@@ -221,38 +144,41 @@ class _TelaDesenhoLivreState extends State<TelaDesenhoLivre> {
         onPointerDown: onPointerDown,
         onPointerMove: onPointerMove,
         onPointerUp: onPointerUp,
-        child: Stack(
-          children: [
-            Positioned.fill(
-              child: ValueListenableBuilder(
-                valueListenable: lines,
-                builder: (context, lines, _) {
-                  return CustomPaint(
-                    painter: StrokePainter(
-                      color: const Color(0xffE45828),
-                      lines: lines,
-                      options: options,
-                    ),
-                  );
-                },
+        child: Screenshot(
+          controller: screenshotController,
+          child: Stack(
+            children: [
+              Positioned.fill(
+                child: ValueListenableBuilder(
+                  valueListenable: lines,
+                  builder: (context, lines, _) {
+                    return CustomPaint(
+                      painter: StrokePainter(
+                        color: const Color(0xffE45828),
+                        lines: lines,
+                        options: options,
+                      ),
+                    );
+                  },
+                ),
               ),
-            ),
-            Positioned.fill(
-              child: ValueListenableBuilder(
-                valueListenable: line,
-                builder: (context, line, _) {
-                  return CustomPaint(
-                    painter: StrokePainter(
-                      color: const Color(0xffE45828),
-                      lines: line == null ? [] : [line],
-                      options: options,
-                    ),
-                  );
-                },
+              Positioned.fill(
+                child: ValueListenableBuilder(
+                  valueListenable: line,
+                  builder: (context, line, _) {
+                    return CustomPaint(
+                      painter: StrokePainter(
+                        color: const Color(0xffE45828),
+                        lines: line == null ? [] : [line],
+                        options: options,
+                      ),
+                    );
+                  },
+                ),
               ),
-            ),
-            //numeralDots()
-          ],
+              //numeralDots()
+            ],
+          ),
         ),
       ),
     );
