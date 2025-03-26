@@ -1,10 +1,8 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_gallery_saver/image_gallery_saver.dart';
 import 'package:ionicons/ionicons.dart';
-import 'package:motore/screen/numeros/draw_number.dart';
-import 'package:perfect_freehand/perfect_freehand.dart';
+import 'package:painter/painter.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:screenshot/screenshot.dart';
 
@@ -17,66 +15,18 @@ class TelaDesenhoLivre extends StatefulWidget {
 
 class _TelaDesenhoLivreState extends State<TelaDesenhoLivre> {
   ScreenshotController screenshotController = ScreenshotController(); 
+  PainterController controller = _newController();
 
-  StrokeOptions options = StrokeOptions(
-    size: 16,
-    thinning: 0.7,
-    smoothing: 0.5,
-    streamline: 0.5,
-    start: StrokeEndOptions.start(
-      taperEnabled: true,
-      customTaper: 0.0,
-      cap: true,
-    ),
-    end: StrokeEndOptions.end(
-      taperEnabled: true,
-      customTaper: 0.0,
-      cap: true,
-    ),
-    simulatePressure: true,
-    isComplete: false,
-  );
-
-  /// Previous lines drawn.
-  final lines = ValueNotifier(<Stroke>[]);
-
-  /// The current line being drawn.
-  final line = ValueNotifier<Stroke?>(null);
-
-  void clear() => setState(() {
-        lines.value = [];
-        line.value = null;
-      });
-
-  void onPointerDown(PointerDownEvent details) {
-    final supportsPressure = details.kind == PointerDeviceKind.stylus;
-    options = options.copyWith(simulatePressure: !supportsPressure);
-
-    final localPosition = details.localPosition;
-    final point = PointVector(
-      localPosition.dx,
-      localPosition.dy,
-      supportsPressure ? details.pressure : null,
-    );
-
-    line.value = Stroke([point]);
+  static PainterController _newController() {
+    PainterController controller = PainterController();
+    controller.thickness = 5.0;
+    controller.backgroundColor = const Color(0xffFFFFFF);
+    return controller;
   }
 
-  void onPointerMove(PointerMoveEvent details) {
-    final supportsPressure = details.pressureMin < 1;
-    final localPosition = details.localPosition;
-    final point = PointVector(
-      localPosition.dx,
-      localPosition.dy,
-      supportsPressure ? details.pressure : null,
-    );
-
-    line.value = Stroke([...line.value!.points, point]);
-  }
-
-  void onPointerUp(PointerUpEvent details) {
-    lines.value = [...lines.value, line.value!];
-    line.value = null;
+  @override
+  void initState() {
+    super.initState();
   }
 
   Future<bool> _requestPermission() async {
@@ -130,7 +80,7 @@ class _TelaDesenhoLivreState extends State<TelaDesenhoLivre> {
           const SizedBox(width: 16),
           IconButton(
             onPressed: () {
-              clear();
+              controller.clear();
             },
             icon: const Icon(
               Ionicons.sync,
@@ -140,46 +90,9 @@ class _TelaDesenhoLivreState extends State<TelaDesenhoLivre> {
           ),
         ],
       ),
-      body: Listener(
-        onPointerDown: onPointerDown,
-        onPointerMove: onPointerMove,
-        onPointerUp: onPointerUp,
-        child: Screenshot(
-          controller: screenshotController,
-          child: Stack(
-            children: [
-              Positioned.fill(
-                child: ValueListenableBuilder(
-                  valueListenable: lines,
-                  builder: (context, lines, _) {
-                    return CustomPaint(
-                      painter: StrokePainter(
-                        color: const Color(0xffE45828),
-                        lines: lines,
-                        options: options,
-                      ),
-                    );
-                  },
-                ),
-              ),
-              Positioned.fill(
-                child: ValueListenableBuilder(
-                  valueListenable: line,
-                  builder: (context, line, _) {
-                    return CustomPaint(
-                      painter: StrokePainter(
-                        color: const Color(0xffE45828),
-                        lines: line == null ? [] : [line],
-                        options: options,
-                      ),
-                    );
-                  },
-                ),
-              ),
-              //numeralDots()
-            ],
-          ),
-        ),
+      body: Screenshot(
+        controller: screenshotController,
+        child: Painter(controller)
       ),
     );
   }
