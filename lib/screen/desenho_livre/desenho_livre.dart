@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_gallery_saver/image_gallery_saver.dart';
 import 'package:ionicons/ionicons.dart';
@@ -21,6 +22,7 @@ class _TelaDesenhoLivreState extends State<TelaDesenhoLivre> {
     PainterController controller = PainterController();
     controller.thickness = 5.0;
     controller.backgroundColor = const Color(0xffFFFFFF);
+    controller.drawColor = const Color(0xff000000);
     return controller;
   }
 
@@ -84,10 +86,54 @@ class _TelaDesenhoLivreState extends State<TelaDesenhoLivre> {
             },
             icon: const Icon(
               Ionicons.sync,
-              size: 20,
+              size: 18,
               color: Color(0xff000000),
             ),
           ),
+          IconButton(
+            onPressed: () {
+              showModalBottomSheet(
+                context: context,
+                isScrollControlled: true,
+                enableDrag: false,
+                backgroundColor: const Color(0xffFFFFFF),
+                builder: (BuildContext context) {
+                  return StatefulBuilder (
+                    builder: (context, setState) {
+                      return SafeArea(
+                        child: SizedBox(
+                          width: double.infinity,
+                          height: MediaQuery.of(context).size.height * 0.8,
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 20),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                ColorPicker(
+                                  pickerColor: controller.drawColor,
+                                  onColorChanged: (Color c) {
+                                    controller.drawColor = c;
+                                    setState(() {});
+                                  },
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                  );
+                },
+              );
+            }, 
+            icon: const Icon(
+              Ionicons.color_palette_outline,
+              size: 18,
+              color: Color(0xff000000),
+            ),
+          )
         ],
       ),
       body: Screenshot(
